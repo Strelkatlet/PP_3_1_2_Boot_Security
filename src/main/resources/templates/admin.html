@@ -27,8 +27,7 @@
                 <td th:text="${user.getLastName()}">lastName</td>
                 <td th:text="${user.getAge()}">age</td>
                 <td th:text="${user.getMail()}">mail</td>
-                <td th:if="${user.getRoles().contains(roleUser)}" th:text="U ">role</td>
-                <td th:if="${user.getRoles().contains(roleAdmin)}" th:text="A">role</td>
+                <td th:text="${user.getRoles()}"></td>
                 <td>
                     <form th:method="GET" th:action="@{/admin/{id}/edit(id=${user.getId()})}">
                         <input type="submit" value="Edit"/>
@@ -39,7 +38,8 @@
                         <input type="submit" value="Delete"/>
                     </form>
                 </td>
-            </tr>
+            <tr/>
+            </td>
             </tbody>
         </table>
     </div>

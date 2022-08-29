@@ -23,8 +23,7 @@ public class AdminController {
     @GetMapping
     public String showAllUsers(Model model) {
         model.addAttribute("userList", userService.getAllUsers());
-        model.addAttribute("roleUser", roleService.getRoleByName("ROLE_USER"));
-        model.addAttribute("roleAdmin", roleService.getRoleByName("ROLE_ADMIN"));
+        model.addAttribute("rolesList", roleService.getAllRoles());
         return "admin";
     }
 
@@ -43,8 +42,7 @@ public class AdminController {
     @GetMapping("/{id}/edit")
     public String createUpdateUserPattern(@PathVariable Long id, Model model) {
         model.addAttribute("user", userService.getUserById(id));
-        model.addAttribute("roleUser", roleService.getRoleByName("ROLE_USER"));
-        model.addAttribute("roleAdmin", roleService.getRoleByName("ROLE_ADMIN"));
+        model.addAttribute("roles", roleService.getAllRoles());
         return "update";
     }
 
